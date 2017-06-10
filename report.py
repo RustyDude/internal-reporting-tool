@@ -8,7 +8,8 @@ db = psycopg2.connect(database=DBNAME)
 c = db.cursor()
 
 # query for question #1
-# involves a view creation of viewcount(see README.md for more info)
+# involves a view creation of viewcount
+# (see README.md for more info)
 c.execute("""
             select title, view_count
             from viewcount
@@ -18,7 +19,8 @@ c.execute("""
 top_articles = c.fetchall()
 
 # query for question #2
-# invovles the view viewcount used in question #1(see README for more info)
+# invovles the view viewcount used in question #1
+# (see README.md for more info)
 c.execute("""
             select a.name, sum(vc.view_count) as overall_views
             from (select * from viewcount) as vc
@@ -29,9 +31,10 @@ c.execute("""
 author_rank = c.fetchall()
 
 # query for question #3
-# involves view creation of log_errors and percentage(see README for more info)
+# involves view creation of log_errors and percentage
+# (see README.md for more info)
 c.execute("""
-            select date, error_percentage
+            select to_char(date, 'FMMonth DD, YYYY'), error_percentage
             from percentage
             where error_percentage>1.0
           """)

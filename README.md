@@ -61,13 +61,17 @@ group by ar.author, ar.title;
 * **log_errors** - tallies the logs and errors per each day. _(Used in Question 3)_
 ```
 create view log_errors as
-select to_char(time, 'FMMonth DD, YYYY') as date, count(*) as logs, sum(case when status='404 NOT FOUND' then 1 else 0 end) as errors
+select date_trunc('day', time) as date, count(*) as logs, sum(case when status='404 NOT FOUND' then 1 else 0 end) as errors
 from log
 group by date;
 ```
+
+
+
 * **percentage** - calculates the percentage of error per day. _(Used in Question 3)_
 ```
-create view percentage as select date, round((errors/logs::numeric)*100,1) as error_percentage
+create view percentage as
+select date, round((errors/logs::numeric)*100,2) as error_percentage
 from log_errors
 group by date, errors, logs
 order by error_percentage desc;
