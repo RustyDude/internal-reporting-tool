@@ -52,10 +52,15 @@ _This should result in a creation of a file called "**reportfile.text**"_
 ## Views
 * **viewcount** - counts the views per article _(Used in Questions 1 & 2)_
 ```
-create view viewcount as select ar.author as id, ar.title, count(l.path) as view_count
-from articles as ar left join log as l
-on ar.slug = substring(l.path from 10)
-group by ar.author, ar.title;
+create view viewcount as
+select ar.author as id, ar.title, l.view_count
+from articles as ar left join (
+    select path, count(path) as view_count
+    from log
+    where status like '%200%'
+group by log.path)
+as l
+on ar.slug = substring(l.path from 10);
 ```
 
 * **log_errors** - tallies the logs and errors per each day. _(Used in Question 3)_
@@ -65,8 +70,6 @@ select date_trunc('day', time) as date, count(*) as logs, sum(case when status='
 from log
 group by date;
 ```
-
-
 
 * **percentage** - calculates the percentage of error per day. _(Used in Question 3)_
 ```
