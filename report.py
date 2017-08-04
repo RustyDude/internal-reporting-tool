@@ -53,7 +53,7 @@ with open('reportfile.txt', 'w') as results:
         results.write('{0} — {1} views\n'.format(x[0], x[1]))
     # question #3
     results.write(
-        "\n3. On which days did more than 1%% of requests lead to errors?\n"
+        "\n3. On which days did more than 1% of requests lead to errors?\n"
     )
     for x in error_days:
         results.write('{0} — {1}% errors\n'.format(x[0], x[1]))
