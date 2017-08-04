@@ -7,7 +7,7 @@ A **SQL Query Project**, replicating a given mock-up live database using **Postg
 * [Vagrant](https://www.vagrantup.com/downloads.html)
 * [Virtual Machine](https://www.virtualbox.org/wiki/Downloads)
 * [Python3](https://www.python.org/downloads/)
-Or if you already have it, upgrade python through _pip_:
+Or if you already have it, upgrade Python through _pip_:
 ```pip install 'python>=3'```
 
 ## Get it started.
@@ -17,9 +17,9 @@ Or if you already have it, upgrade python through _pip_:
 * Download and unzip [FSND-Virtual-Machine.zip](https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59125904_fsnd-virtual-machine/fsnd-virtual-machine.zip). Alternately, you can use Github to fork and clone the repository https://github.com/udacity/fullstack-nanodegree-vm.
 
 ### Downloading a copy
-* **Fork** the [repository](https://github.com/RustyDude/internal-reporting-tool). _(You may fork or not totally up to you)_
+* **Fork** the [repository](https://github.com/russeladrianlopez/internal-reporting-tool). _(You may fork or not totally up to you)_
 
-* Once you have your own repository. **You may click Clone or download**, then using _HTTPs section_ copy clone URL. (Put it inside your vagrant subdirectory)
+* Once you have your own repository. **You may click Clone or download**, then use _HTTPs section_ and copy the clone URL. (Put it inside your vagrant subdirectory)
 
 ### Start the virtual machine
 
@@ -41,13 +41,13 @@ You need to create those views else the program won't work.
 ### Running the report tool
 * Run this command:
 ``` python3 report.py```
-_This should result into a creation of a file called "**reportfile.text**"_
+_This should result in a creation of a file called "**reportfile.text**"_
 
 ## Questions
 
-* 1. What are the most popular three articles of all time?
-* 2. Who are the most popular article authors of all time?
-* 3. On which days did more than 1% of requests lead to errors?
+1. What are the most popular three articles of all time?
+2. Who are the most popular article authors of all time?
+3. On which days did more than 1% of requests lead to errors?
 
 ## Views
 * **viewcount** - counts the views per article _(Used in Questions 1 & 2)_
