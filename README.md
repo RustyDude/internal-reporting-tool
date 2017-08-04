@@ -30,13 +30,15 @@ Or if you already have it, upgrade Python through _pip_:
 ```vagrant ssh```
 
 ### Set up the database
-* Unzip **newsdata.zip**. now you should have a file called "_**newsdata.sql**_"
+* Unzip **newsdata.zip**. now you should have a folder called "_**newsdata**_" which contains the following:
+    * **newsdata.sql** - creates the tables and alterations neccesary for the news database.
+    * **database_setup.sql** - setup the news database and creates views neccesary.
 
-* Once logged on in vagrant, load the data into the database, run this command:
-```psql -d news -f newsdata.sql```
 
-* Setup views required in the queries. [See Below.](#views)
-You need to create those views else the program won't work.
+* Once logged on in vagrant, to load the data and create the database, run this command inside the **"newsdata"** folder:
+```psql -f database_setup.sql```
+
+* For more information on the views required for the queries. [See Views Below.](#views)
 
 ### Running the report tool
 * Run this command:
